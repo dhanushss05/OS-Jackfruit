@@ -116,41 +116,38 @@ sudo dmesg | tail -5
 
 ## 3. Demo Screenshots
 
-### Screenshot 1 — Multi-container supervision
-<img width="1282" height="223" alt="Screenshot from 2026-04-09 01-30-36" src="https://github.com/user-attachments/assets/8b29a4be-030e-4294-86bb-11b6a72c2730" />
-*Two containers alpha and beta started and running under one supervisor process*
+### Screenshot 1 — Container filesystem view
+<img src="ss1.png" width="900"/>
 
-### Screenshot 2 — Metadata tracking
-<img width="898" height="132" alt="Screenshot from 2026-04-09 01-35-08" src="https://github.com/user-attachments/assets/57897788-aba4-47c1-9b62-c9d36826dfe5" />
-*ps command showing container ID, PID, STATE, SOFT and HARD memory limits*
+*Listing root filesystem inside container using chroot*
 
-### Screenshot 3 — Bounded-buffer logging
-<img width="976" height="942" alt="Screenshot from 2026-04-09 01-35-58" src="https://github.com/user-attachments/assets/60346128-1f58-4948-93d4-2cdba3c07849" />
-*Log file contents of alpha container captured through the logging pipeline*
+---
 
-### Screenshot 4 — CLI and IPC
-<img width="1295" height="97" alt="Screenshot from 2026-04-09 01-39-50" src="https://github.com/user-attachments/assets/8f9fcf0c-cc86-44eb-b15b-fae909abe452" />
-*stop command sent to supervisor via UNIX domain socket, supervisor responds with SIGTERM confirmation*
+### Screenshot 2 — Basic container execution
+<img src="ss2.png" width="900"/>
 
-### Screenshot 5 — Soft-limit warning
-<img width="1031" height="33" alt="Screenshot from 2026-04-09 01-45-55" src="https://github.com/user-attachments/assets/36cd4c57-5d7d-496e-a3ef-8c677d936469" />
-*dmesg showing SOFT LIMIT warning when memtest exceeded 20MiB*
+*Container successfully executes commands (echo test)*
 
-### Screenshot 6 — Hard-limit enforcement
-<img width="1031" height="138" alt="Screenshot from 2026-04-09 01-46-06" src="https://github.com/user-attachments/assets/4ac93058-ea4a-4370-b78b-3b57fab85a4e" />
-*dmesg showing HARD LIMIT kill when memtest exceeded 40MiB, ps shows killed state*
+---
 
-### Screenshot 7a — Scheduling experiment (cpu-high log)
-<img width="613" height="916" alt="Screenshot from 2026-04-09 01-52-10" src="https://github.com/user-attachments/assets/8c5a571a-d618-4134-a417-da199819b8f1" />
-*cpu-high container running with nice 0, full CFS weight*
+### Screenshot 3 — Filesystem exploration
+<img src="ss3.png" width="900"/>
 
-### Screenshot 7b — Scheduling experiment (cpu-low log)
-<img width="999" height="954" alt="Screenshot from 2026-04-09 01-52-30" src="https://github.com/user-attachments/assets/4f4ae71c-3947-4921-806f-69b563fc9dfc" />
-*cpu-low container running with nice 10, reduced CFS weight*
+*Accessing /etc inside container showing isolation*
 
-### Screenshot 8 — Clean teardown
-<img width="949" height="339" alt="Screenshot from 2026-04-09 01-55-34" src="https://github.com/user-attachments/assets/f83c4514-ad22-4f0f-9737-155f35d5d65c" />
-*No zombie processes, all containers reaped, kernel module unloaded cleanly*
+---
+
+### Screenshot 4 — Clean shell environment
+<img src="ss4.png" width="900"/>
+
+*Minimal container shell environment after chroot*
+
+---
+
+### Screenshot 5 — Initial container entry
+<img src="ss5.png" width="900"/>
+
+*Entering container using chroot rootfs-beta*
 
 ---
 
