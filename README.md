@@ -146,6 +146,8 @@ sudo dmesg | tail -5
 
 ### Screenshot 5 — Initial container entry
 <img src="ss5.png" width="900"/>
+<img src="ss6.png" width="900"/>
+<img src="ss7.png" width="900"/>
 
 *Entering container using chroot rootfs-beta*
 
